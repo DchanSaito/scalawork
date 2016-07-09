@@ -1,3 +1,5 @@
 /.ensime
 /target
 /atcoder
+/.ensime_cache
+/basic_training/target
