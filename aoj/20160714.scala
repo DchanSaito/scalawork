@@ -7,7 +7,7 @@ object Main {
     // イミュータブルやるにはわからなかった
     var br = ar
     br(y) = br(y).patch(x, "C", 1)
-    br = bfs(ar, x - 1, y, w, h)
+    br = bfs(br, x - 1, y, w, h)
     br = bfs(br, x + 1, y, w, h)
     br = bfs(br, x, y + 1, w, h)
     br = bfs(br, x, y - 1, w, h)
