@@ -1,5 +1,5 @@
 object Main {
-  def bfs(ar: Array[String], x: Int, y: Int, w: Int, h: Int): Array[String] = {
+  def dfs(ar: Array[String], x: Int, y: Int, w: Int, h: Int): Array[String] = {
     if (x < 0 || x >= w || y < 0 || y >= h)
       return ar
     if (ar(y)(x) != '.')
@@ -7,10 +7,10 @@ object Main {
     // イミュータブルやるにはわからなかった
     var br = ar
     br(y) = br(y).patch(x, "C", 1)
-    br = bfs(br, x - 1, y, w, h)
-    br = bfs(br, x + 1, y, w, h)
-    br = bfs(br, x, y + 1, w, h)
-    br = bfs(br, x, y - 1, w, h)
+    br = dfs(br, x - 1, y, w, h)
+    br = dfs(br, x + 1, y, w, h)
+    br = dfs(br, x, y + 1, w, h)
+    br = dfs(br, x, y - 1, w, h)
     return br
   }
 
@@ -27,7 +27,7 @@ object Main {
     }
     var br = ar
     br(y) = br(y).patch(x, ".", 1)
-    br = bfs(br, x, y, room(0), room(1))
+    br = dfs(br, x, y, room(0), room(1))
     var cnt = 0
     for(res <- br)
       cnt += res.count{_ == 'C'}
